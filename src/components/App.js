@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Header from './Header';
 import Dummy from './Dummy';
+import { Routes, Route } from 'react-router-dom';
 
 // api
 import getWordFromApi from '../services/api';
@@ -10,6 +11,7 @@ import '../styles/Dummy.scss';
 import '../styles/Letters.scss';
 import '../styles/Form.scss';
 import '../styles/Header.scss';
+import Footer from './Footer';
 
 function App() {
   const [word, setWord] = useState('');
@@ -116,6 +118,7 @@ function App() {
         </section>
         <Dummy numberOfErrors={getNumberOfErrors()}></Dummy>
       </main>
+      <Footer></Footer>
     </div>
   );
 }
