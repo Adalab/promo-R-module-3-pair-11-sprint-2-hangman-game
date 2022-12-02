@@ -8,6 +8,7 @@ import Form from './Form';
 import Footer from './Footer';
 import Instructions from './Instructions';
 import Options from './Options';
+import Loading from './Loading';
 
 // api
 import getWordFromApi from '../services/api';
@@ -21,10 +22,11 @@ function App() {
   const [word, setWord] = useState('');
   const [userLetters, setUserLetters] = useState([]);
   const [lastLetter, setLastLetter] = useState('');
-
+  const [isLoading , setIsLoading]= useState(true);
   useEffect(() => {
     getWordFromApi().then((word) => {
       setWord(word);
+      setIsLoading(false)
     });
   }, []);
 
@@ -56,6 +58,7 @@ function App() {
   return (
     <div className="page">
       <Header></Header>
+      <Loading isLoading={isLoading}></Loading>
       <main className="main">
         <section>
           <Routes>
