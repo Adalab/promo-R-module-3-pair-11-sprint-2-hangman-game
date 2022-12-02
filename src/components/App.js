@@ -46,6 +46,12 @@ function App() {
       setUserLetters([...userLetters]);
     }
   };
+  const handleColectWord =(value) => {
+    setWord(value);
+    setLastLetter('');
+    setUserLetters([]);
+    
+  }
 
   return (
     <div className="page">
@@ -77,7 +83,7 @@ function App() {
               path="/instructions"
               element={<Instructions></Instructions>}
             />
-            <Route path="/options" element={<Options></Options>} />
+            <Route path="/options" element={<Options handleColectWord={handleColectWord} word={word}></Options>} />
           </Routes>
         </section>
         <Dummy numberOfErrors={getNumberOfErrors()}></Dummy>
